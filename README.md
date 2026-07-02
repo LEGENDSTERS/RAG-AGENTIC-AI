@@ -18,3 +18,100 @@ The agents are :
 <img width="128" height="70" alt="image" src="https://github.com/user-attachments/assets/0666196b-9f62-4fbb-a613-23e1b62ebb8f" />
 
 The LLM model assesses the question and decides which agent to use depending on the intent of the user question and calls tools
+
+
+# Insurance Policy RAG + Agentic AI
+
+This project is an AI-powered insurance policy assistant that answers user queries using Retrieval-Augmented Generation (RAG) and a custom multi-agent architecture.
+
+The system retrieves relevant information from an insurance policy PDF and uses a GPT-based Router Agent to decide which specialist agent(s) should answer the user's query.
+
+## Features
+
+- Insurance policy question answering
+- Retrieval-Augmented Generation (RAG)
+- Custom multi-agent architecture
+- GPT-based Router Agent
+- Policy, Eligibility, Benefit, Checklist, Grievance and Exclusion agents
+- OpenRouter GPT integration
+- FastAPI backend
+
+## Tech Stack
+
+- Python
+- FastAPI
+- LangChain
+- ChromaDB
+- PyPDF
+- RecursiveCharacterTextSplitter
+- Sentence Transformers (all-MiniLM-L6-v2)
+- OpenRouter GPT
+
+## Project Structure
+
+```
+backend/
+│
+├── agents/
+├── llm/
+├── routes/
+├── tools/
+├── rag/
+└── main.py
+```
+
+## Setup
+
+Clone the repository
+
+```bash
+git clone <repository-url>
+```
+
+Create a virtual environment
+
+```bash
+python -m venv .venv
+```
+
+Activate it
+
+```bash
+.venv\Scripts\activate
+```
+
+Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+Create a `.env` file in the project root.
+
+```env
+OPENROUTER_API_KEY=your_api_key
+```
+
+Run the application
+
+```bash
+uvicorn backend.main:app --reload
+```
+
+Open Swagger UI:
+
+```
+http://127.0.0.1:8000/docs
+```
+
+## Example Queries
+
+- What is the deductible?
+- Is my child's accident covered?
+- My ER bill was $600. How much can I claim?
+- What documents do I need to submit?
+- My claim was rejected. How can I appeal?
+
+## Note
+
+This project uses a **custom multi-agent architecture** and does **not** use LangGraph or CrewAI.
